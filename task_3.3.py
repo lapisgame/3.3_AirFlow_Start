@@ -64,11 +64,7 @@ def data_insert(**kwargs):
 default_args = {
     'owner': 'airflow',    
     'start_date': airflow.utils.dates.days_ago(2),
-    # 'end_date': datetime(),
     'depends_on_past': False,
-    #'email': ['airflow@example.com'],
-    #'email_on_failure': False,
-    #'email_on_retry': False,
     'retries': 1,
     'retry_delay': timedelta(minutes=5),
 }
@@ -77,7 +73,6 @@ task_33_new = DAG(
     dag_id = 'task_33_new',
     default_args=default_args,
     schedule_interval='*/10 * * * *',
-    #schedule_interval='@daily',	
     dagrun_timeout=timedelta(minutes=60),
     description='task 3.2 decision',
     start_date = airflow.utils.dates.days_ago(1)
